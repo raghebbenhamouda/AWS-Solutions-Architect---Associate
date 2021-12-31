@@ -4,16 +4,16 @@
 
 ## Overview
 
-- 24 Regions
+- 26 Regions
     - Physical location in the world with 2 to 6 AZs, usually 3
     - Most AWS services are region-scoped
-- 76 AZ
+- 84 AZ
     - Discrete data centers with redundant power, networking and connectivity
     - Housed in separate facilities and isolated from disasters
     - Connected with high bandwidth, low latency networking
-- 205 Edge Locations
+- 225 Edge Locations
     - Endpoints for AWS used for caching CloudFront content
-- 11 Regional Edge Caches
+- 12 Regional Edge Caches
     - Help reduce the load on CloudFront origin resources
     - Larger cache-width than any individual edge location so TTL can be longer
 
