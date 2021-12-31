@@ -1526,7 +1526,7 @@ The requester must be authenticated in AWS (cannot be anonymous).
             - Snowball Edge Compute Optimized: 42 TB of HDD capacity for block volume and S3 compatible object storage 
     
     - Snowmobile
-        - Exabyte-scale data transfer service for extremely large data transfers**(more than 10 PB)**
+        - Exabyte-scale data transfer service for extremely large data transfers **(more than 10 PB)**
 - Used when data transfer would be too slow/expensive over the network
 - Used for disaster recovery, large data transfers, decommission of data centers, on-the-go computing
 - Cannot import directly into Glacier, has to use S3 lifecycle policies
@@ -1553,7 +1553,7 @@ The requester must be authenticated in AWS (cannot be anonymous).
         - Up to 40 vCPUs, 80 GiB of RAM
         - Object storage clustering available     
      - AWS OpsHub
-        - a software you install on your computer / laptop) to manage your Snow Family Device
+        - a software you install on your (computer/laptop) to manage your Snow Family Device
 
 ## Snowball into Glacier
 
@@ -1644,8 +1644,8 @@ The requester must be authenticated in AWS (cannot be anonymous).
 
 ## RDS Multi-AZ:
 
--Your application talks to one DNS name and in case there is a problem with the Master, there will be an automatic failover to the standby database.
--The standby database is just for standby.No one can read to it. No one can write to it, it's just here as a failover in case anything goes on with your Master database.
+- Your application talks to one DNS name and in case there is a problem with the Master, there will be an automatic failover to the standby database.
+- The standby database is just for standby.No one can read to it. No one can write to it, it's just here as a failover in case anything goes on with your Master database.
 - Disaster recovery in AWS always looks to ensure standby copies of resources are maintained in a separate geographical area. This way, if a disaster (natural disaster, political conflict, etc.) ever struck where your original resources are, the copies would be unaffected.
 - When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). Each AZ runs on its own physically distinct, independent infrastructure, and is engineered to be highly reliable.
 - With a Multi-AZ configuration, EC2 connects to its RDS data store using a DNS address masked as a connection string. If the primary DB fails, Multi-AZ is smart enough to detect that failure and automatically update the DNS address to point at the secondary. No manual intervention is required and AWS takes care of swapping the IP address in DNS.
@@ -1792,7 +1792,7 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 
 ## Aurora Multi-Master
 
-- All the Aurora instances can do writes and in case one Aurora instance fails then you can automatically failover to another one giving you immediate failover for the writer node.
+All the Aurora instances can do writes and in case one Aurora instance fails then you can automatically failover to another one giving you immediate failover for the writer node.
 
 ## Aurora Machine Learning
 
@@ -1830,16 +1830,6 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 - Automatically patched with zero downtime and maintained
 - Advanced monitoring features
 
-## Solution Architecture - DB Cache
-
-- Applications queries ElastiCache, if not available, get from RDS and store in ElastiCache.
-
-## Solution Architecture – User Session Store
-
-- User logs into any of the application, The application writes the session data into ElastiCache.
--If the user hits another instance of our application, The instance retrieves the data and the user is already logged in
-
-
 ## Cache Security
 
 - Does not support IAM authentication
@@ -1870,9 +1860,9 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
         - Session Store
             - Temporary session data (using time to live settings)
       
-     -Redis really is for high availability, backup, Read Replicas
-     -Memcached is a pure case of partitioning of data (sharding)
-     -Memcached is really intended to serve as a pure cache. While Redis can also be used as a database.
+     - Redis really is for high availability, backup, Read Replicas
+     - Memcached is a pure case of partitioning of data (sharding)
+     - Memcached is really intended to serve as a pure cache. While Redis can also be used as a database.
 
  
 ## ElastiCache Use Cases
@@ -1968,11 +1958,11 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 
 ## DynamoDB –Time To Live (TTL)
 
-- Automatically delete items after an expiry timestamp
+ Automatically delete items after an expiry timestamp
 
 ## DynamoDB - Indexes
 
-- High level: allow to query on attributes other than the Primary Key
+ High level: allow to query on attributes other than the Primary Key
 
 
 ## DynamoDB Security
@@ -2178,19 +2168,21 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 
 - How you want to route traffic for a domain
 - Each record contains:
-    -Domain/subdomain Name – e.g., example.com
-    -Record Type – e.g., A or AAAA
-    -Value – e.g., 123.456.789.123
-    -Routing Policy – how Route 53 responds to queries
-    -TTL – amount of time the record cached at DNS Resolvers
+    - Domain/subdomain Name – e.g., example.com
+    - Record Type – e.g., A or AAAA
+    - Value – e.g., 123.456.789.123
+    - Routing Policy – how Route 53 responds to queries
+    - TTL – amount of time the record cached at DNS Resolvers
     
 ## Hosted Zones
 
- - ontainer for records that define how to route traffic to a domain and its subdomains
- -A public Hosted Zones – contains records that specify how to rout traffic on the Internet (public domain names) application1.mypublicdomain.com
- -Private Hosted Zones – contain records that specify how you route
- -traffic within one or more VPCs (private domain names) application1.company.internal
- -You pay $0.50 per month per hosted zone
+ - Container for records that define how to route traffic to a domain and its subdomains
+ - A public Hosted Zones
+ – contains records that specify how to rout traffic on the Internet (public domain names) application1.mypublicdomain.com
+ - Private Hosted Zones 
+ - contain records that specify how you route
+ - traffic within one or more VPCs (private domain names) application1.company.internal
+ - You pay $0.50 per month per hosted zone
  
 ## DNS TTL
 
@@ -2212,7 +2204,7 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 ## Route 53 – Health Checks Types
 
 - Monitor an Endpoint
-    - PAbout 15 global health checkers will check the endpoint health
+    - About 15 global health checkers will check the endpoint health
     - Health Checks can be setup to pass / fail based on the text in the first 5120 bytes of the response
 - Calculated Health Checks
     - Combine the results of multiple Health Checks into a single Health Check
@@ -2264,8 +2256,8 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 - Can expose external HTTPS and can talk to internal HTTPS backend
 - Geo Restriction
     - Can allow/deny countries from accessing your content
-        -**Whitelist**: Allow your users to access your content only if they're in one of the countries on a list of approved countries.
-        -**Blacklist:** Prevent your users from accessing your content if they're in one of the countries on a blacklist of banned countries.
+        - **Whitelist**: Allow your users to access your content only if they're in one of the countries on a list of approved countries.
+        - **Blacklist:** Prevent your users from accessing your content if they're in one of the countries on a blacklist of banned countries.
     - Enforced by 3rd party Geo-IP database
     - Used to enforce Copyright laws
 - Great for static content that needs to be available everywhere
@@ -2286,8 +2278,8 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
 ## CloudFront at a high level
 
 - The client will send an HTTP request directly into CloudFront,  then the edge location will forward the request to your origin and that includes the query strings. 
--The edge location will cache the response and return the response back to our clients.
--The next time another client makes a similar request, the edge location will first look into the cache before forwarding the request to the origin.
+- The edge location will cache the response and return the response back to our clients.
+- The next time another client makes a similar request, the edge location will first look into the cache before forwarding the request to the origin.
 
 
 ## CloudFront vs S3 Cross Region Replication:
@@ -2316,17 +2308,17 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
     - The cost of data out per edge location varies
     - The price is per gb of transferred data
 - Price Classes: to reduce the number of edge locations for cost reduction
-    -1. **Price Class All**: all regions – best performance
-    -2. **Price Class 200**: most regions, but excludes the most expensive regions
-    -3. **Price Class 100**: only the least expensive regions
--Multiple Origin
-    -To route to different kind of origins based on the content type
-    -Exp: /api/ => ALB, /* => S3.
--Origin Group
+    - 1. **Price Class All**: all regions – best performance
+    - 2. **Price Class 200**: most regions, but excludes the most expensive regions
+    - 3. **Price Class 100**: only the least expensive regions
+- Multiple Origin
+    - To route to different kind of origins based on the content type
+    - Exp: /api/ => ALB, /* => S3.
+- Origin Group
    - To increase high-availability and do failover
    - Origin Group: one primary and one secondary origin
    - If the primary origin fails, the second one is used
--Field Level Encryption
+- Field Level Encryption
    - Protect user sensitive information through application stack
    - Exp: encrypt a user's credit card on the edge location with a public key, then the web server will decrypt it using a private key.
    
