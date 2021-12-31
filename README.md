@@ -1,1 +1,1 @@
-# AWS Solutions Architect - Associate
+# AWS Solutions Architect - Associate Notes
