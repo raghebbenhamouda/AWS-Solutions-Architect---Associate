@@ -1180,8 +1180,8 @@
         - Block public and cross-account access through any public bucket or access point policy
         - Best setting if you know that the bucket should never be public
     - Access Control lists ⇒ Not as used anymore
-        - Object Access Control List ⇒ Really fine control on who can access specific objects
-        - Bucket Access Control List ⇒ Really fine control on who can access the bucket
+        - Within Amazon S3, you can use ACLs to give read or write access on buckets or objects to groups of users
+        - You can only grant **other AWS accounts** (not specific users) access to your Amazon S3 resources
 - General security settings
     - Networking
         - Supports VPC endpoints
@@ -3595,7 +3595,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Can create more granular filters with Web Application Firewalls either at the ALB level or at the CloudFront distribution level if using CloudFront
 - NLB traffic is passthrough and does not have security groups, so security has to be put in effect in the instance's Security Group and in the NACLs
 
-## High Performance Computing
+
 
 - Cloud is great for HPC because of on-demand nature of resource usage
 - Data Management and Transfer
@@ -3612,3 +3612,9 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Automation
     - AWS Batch ⇒ Multinode parallel jobs that span multiple EC2 instances
     - Parallel Cluster ⇒ Automatic creation of VPC, subnet, cluster and instance type for HPC
+    
+## X-Ray
+
+- AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture
+- With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors
+- You can use X-Ray to collect data across AWS Accounts. The X-Ray agent can assume a role to publish data into an account different from the one in which it is running. This enables you to publish data from various components of your application into a central account.
