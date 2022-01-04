@@ -1371,12 +1371,12 @@ The requester must be authenticated in AWS (cannot be anonymous).
 
 ## DataSync
 
-- Allows to move large amount of data to AWS
-- Used on-premise
+- An online data transfer service that simplifies, automates, and accelerates copying large amounts of data** to and from** AWS storage services over the **internet** or **AWS Direct Connect**. 
+- **Maximum throughput per task  10 Gbps**
 - Install an AWS DataSync agent on your server and connect to the NAS to copy data to/from AWS
-- Automatically encrypts data and accelerates transfer over the WAS
+- Automatically **encrypts data** and accelerates transfer over the WAS
 - Automatic data integrity checks in-transit and at-rest
-- In the AWS region, DataSync securely connects to S3, EFS or FSx for Windows File Server to copy data and metadata
+- In the AWS region, DataSync **securely** connects to **S3, EFS, NFS, or FSx for Windows File Server** to copy data and metadata
 
 ## S3 Access Logs
 
