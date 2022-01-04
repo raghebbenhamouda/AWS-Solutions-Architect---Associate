@@ -3463,7 +3463,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## Workspaces
 
-- Managed Cloud Desktops
+- Fully managed desktop virtualization service for **Windows** and **Linux** that enables you to **access resources from any supported device**.
 - On-demand Virtual Desktops
 - Secure and encrypted, integrates with Microsoft Active Directory
 
