@@ -2070,7 +2070,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Integrates with AWS Database Migration Service
 - Can connect via JDBC/ODBC
 - Distributed ⇒ High availability
-- Massively Parallel Query Execution (MPP) ⇒ High performance
+- **Massively Parallel** Query Execution (MPP) ⇒ High performance
 - 1 to 128 nodes with 160GB per node
 - Works on a leader - follower architecture
     - Leader node ⇒ query planning and result aggregation
@@ -2744,7 +2744,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## Kinesis Data Stream
 
 - Divided in ordered shards/partitions
-    - A shard is 1MB/s or 1000 messages/s for writes and 2MB/s per reads
+    - A shard is **1MB/s** or **1000 messages/s** for writes and **2MB/s** per reads
     - Billed per shard provisioned with 200 shards as a soft limit
     - Shards number can increase over time to scale appropriately (reshard/merge)
     - Records are ordered per shard
@@ -3454,12 +3454,13 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## Glue
 
-- Fully managed ETL(extract, transform, and load) service
-- Uses Spark in the backend
+- Fully **serverless** managed ETL(extract, transform, and load) service
+- **Run queries against an Amazon S3 data lake without moving your data**
 - Automates data preparation for analytics
 - Performs schema inference on crawled data and can automatically generate code
 - Works with Aurora, RDS, S3 and Redshift
 - Glue Data Catalog ⇒ Metadata of the source tables
+- **The data that is used as sources and targets of your ETL jobs are stored in the data catalog**
 
 ## Workspaces
 
@@ -3618,3 +3619,14 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture
 - With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors
 - You can use X-Ray to collect data across AWS Accounts. The X-Ray agent can assume a role to publish data into an account different from the one in which it is running. This enables you to publish data from various components of your application into a central account.
+
+## AWS Server Migration Service (SMS)
+
+- **An agentless service** for** migrating** thousands of **on-premises workloads to AWS**
+- This is the enhanced replacement of Amazon EC2 **VM Import service**.
+- Each server volume replicated is saved as a n**ew Amazon Machine Image (AMI)**, which can be launched as an EC2 instance in the AWS cloud.
+- AWS SMS creates a n**ew EBS snapshot** with every replication.
+
+## AWS Transfer Family
+- secure transfer service for moving files into and out of AWS storage services, such as **Amazon S3 and Amazon EFS** using the **FTP protocol**
+- You can provision a Transfer Family server with multiple protocols **(SFTP, FTPS, FTP)**
