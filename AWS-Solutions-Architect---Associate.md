@@ -1802,6 +1802,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## Aurora Use Cases
 
 - Same as RDS, but more flexible and performant while needing less maintenance
+- **for online transactional processing (OLTP)**
 
 ## Aurora for Solution Architect
 
@@ -2094,7 +2095,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## Redshift Use Cases
 
-- Ideal for OLAP and BI applications
+- Ideal for **OLAP(online analytical processing)** and BI applications
 
 ## Redshift for Solution Architect
 
