@@ -907,7 +907,7 @@
 - Max 10,000 snapshots
 - Can copy snapshots across AZs/Regions
 - Can make AMI from snapshot
-- Snapshot taking can be automated with AWS Data Lifecycle Manager
+- **Snapshot taking can be automated with AWS Data Lifecycle Manager**
 - EBS volumes restored by snapshot need to be pre-warmed (`fio` or `dd` to read full volumes)
 
 ## EBS Migration
@@ -1220,6 +1220,7 @@
 ## S3 Websites
 
 - S3 can host static websites at URLs like `<bucket-name>.s3-website.<region>.amazonaws.com`
+- **The bucket must have the same name as your domain** 
 - In case of a 403 error, it means that the bucket policy does not allow public reads and this must be changed
 
 ## S3 Cross-Origin Resource Sharing (CORS)
@@ -1372,7 +1373,7 @@ The requester must be authenticated in AWS (cannot be anonymous).
 
 ## DataSync
 
-- An online data transfer service that simplifies, automates, and accelerates copying large amounts of data** to and from** AWS storage services over the **internet** or **AWS Direct Connect**. 
+- An online data transfer service that simplifies, automates, and accelerates copying **large amounts** of data **to and from** AWS storage services over the **internet** or **AWS Direct Connect**. 
 - **Maximum throughput per task  10 Gbps**
 - Install an AWS DataSync agent on your server and connect to the NAS to copy data to/from AWS
 - Automatically **encrypts data** and accelerates transfer over the WAS
@@ -3443,10 +3444,10 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Integrates with many other services such as ECS, EC2, API Gateway, etc...
 - 1 year maximum execution time
 
-## Simple Workflow Service (SWS)
+##  Amazon Simple Workflow Service (SWF)
 
 - Orchestration of work among applications
-- B**asically a non-serverless version of Step Functions (runs on EC2)**
+- **Basically a non-serverless version of Step Functions (runs on EC2)**
 - 1 year maximum execution time
 - Effectively phased out for Step Functions
 
