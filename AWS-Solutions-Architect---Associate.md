@@ -1054,8 +1054,9 @@
         - Content distribution
 - S3 - Infrequent Access (IA)
     - 99.9% availability
+    - **Same low latency and high throughput performance of Standard**
     - Minimum 30 days storage
-    - For data that is not accessed frequently but needs rapid access when needed
+    - **For data that is not accessed frequently but needs rapid access when needed**
     - Lower fee compared to standard S3 but fee on retrieval per GB
     - Can sustain loss of 2 concurrent
     - Charged at constant price GB/Month
@@ -1376,7 +1377,7 @@ The requester must be authenticated in AWS (cannot be anonymous).
 - Install an AWS DataSync agent on your server and connect to the NAS to copy data to/from AWS
 - Automatically **encrypts data** and accelerates transfer over the WAS
 - Automatic data integrity checks in-transit and at-rest
-- In the AWS region, DataSync **securely** connects to **S3, EFS, NFS, or FSx for Windows File Server** to copy data and metadata
+- In the AWS region, DataSync **securely** connects to **S3(All Classes), EFS, NFS, or FSx for Windows File Server** to copy data and metadata
 
 ## S3 Access Logs
 
@@ -3024,6 +3025,14 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
         - Paid standard or higher throughput (1000/s API transactions)
         - Can assign TTL to force update or delete sensitive data
         - Can schedule CloudWatch events for various parameters, such as expiration or lack of change in x days
+
+## AWS Secrets Manager
+
+- Newer service, meant for storing secrets
+- Capability to **force rotation of secrets every X days**
+- Automate generation of secrets on rotation (uses Lambda)
+- **Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)**
+- **Secrets are encrypted using KMS**
 
 ## AWS CloudHSM (Hardware Security Module)
 
