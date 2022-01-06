@@ -852,7 +852,7 @@
 ## EBS Volume Types
 
 - Each is characterized in size, IOPS and throughput
-- Boot volumes
+- Boot volumes( **High IOPS** )
     - GP2 (SSD) ⇒ General purpose
         - Recommended for most workloads
             - Virtual desktops
@@ -868,7 +868,7 @@
         - 4GB -16TB
         - Provisioned IOPS 100 to 64,000 (for Nitro) or 32,000 (for non-Nitro instances)
         - Max IOPS to volume ratio is 50:1
-- Non-Boot volumes
+- Non-Boot volumes( **High throughput** )
     - ST1 (HDD) ⇒ Low-cost, frequently accessed high throughput
         - For streaming workloads with fast throughput at low costs
         - Big data, data warehouses (Apache Kafka)
@@ -2861,7 +2861,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Dimensions are attributes of a metric, up to 10 dimensions per metric
 - Some services have specific monitoring capabilities
     - EC2 Detailed Monitoring
-        - 1-minute detailed metrics from EC2 instance
+        - **1-minute detailed metrics insted of 5 min from EC2 instance**
         - Costs more money than regular 5 minutes
         - Used for faster ASG prompts
 
