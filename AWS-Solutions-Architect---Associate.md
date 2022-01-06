@@ -217,7 +217,7 @@
         - Access to console and CLI
         - Used to integrate your own repository of users with IAM
     - Single Sign-On (SSO)
-        - Managed service and Improved way of handling temporary credential
+        -  **Centrally manage SSO access to multiple AWS accounts and business applications**
         - Integrated with AWS Organizations, SAML 2.0 and on-premise AD
         - Centralized permission management and auditing with CloudTrail
         - Can access AWS Resources and 3rd party applications with one Sign-On
@@ -237,7 +237,7 @@
 
 ## AWS STS - Security Token Service
 
-- Create tokens to grant limited and temporary (up to 1 hour) access to AWS resources
+- **create and provide trusted users with temporary(up to 1 hour) security credentials that can control access to your AWS resources**
 - Most important STS API calls
     - `AssumeRole` ⇒ Role access within- or cross-account
     - `AssumeRoleWithSAML` ⇒ Role access for federated Identities
@@ -2617,8 +2617,9 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - Oldest AWS offering
     - Fully managed
     - Scales from 1 to 10k messages per second
-    - 4 to 14-day retention period
+    - **4 to 14-day retention period**
     - No limits of messages in the queue
+    -  **120,000 limit** for the number of inflight messages(received from the queue by a consuming component, but have not yet been deleted from the queue)
     - <10ms on produce/consume
     - At-Least-Once Delivery ⇒ Messages are delivered at least once but can have multiples
     - Best-Effort Ordering ⇒ Occasional out of order message delivery
@@ -2627,7 +2628,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - Default 0 seconds, can change via `DelaySeconds` parameter
     - Can set default at each queue level
 - Dead Letter Queue
-    - If a message is returned to the queue too many times because consumers fail to process it in time during the Visibility Timeout, it can be pushed to a separate queue
+    - If a message is returned to the queue too many times because consumers fail to process it in time during the Visibility Timeout, it can be pushed to a separate queue 
     - We can set a threshold on how many times the message can be pushed back via a Redrive policy
     - After the threshold is passed, the message is moved in the Dead Letter Queue (DLQ)
     - It is a fully separate queue with different settings than the original queue
@@ -2636,6 +2637,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - Lower throughput ⇒ 3,000/s with batching, 300s without
     - Messages are processed in order ⇒ First In, First Out
     - Messages are sent exactly once
+    - **20,000 limit** for the number of inflight messages
     - Queue delay but no per-message delay
     - Content-based deduplication (5 minute interval using Duplication ID)
     - Message groups
@@ -3073,7 +3075,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     
 ## **Amazon GuardDuty**
 
-- Intelligent Threat discovery to Protect AWS Account 
+- **Threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads.**
 - Uses Machine Learning algorithms, anomaly detection, 3rd party data
 - Input data includes: 
     -  CloudTrail Logs: unusual API calls, unauthorized deployments 
@@ -3234,6 +3236,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## Bastion Hosts
 
 - Used to SSH into private instances
+- **Use a small instance because this host will only act as a jump server to connect to other instances in your VPC**
 - It is the public subnet that is then connected to other private subnets
 - **Bastion Host's security must be extra tight and strict (usually Port 22 traffic from needed IPs)**
 - Using an NLB, bastion hosts can be in private subnets
