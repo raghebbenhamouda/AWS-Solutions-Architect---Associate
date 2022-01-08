@@ -2771,7 +2771,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - Records are ordered per shard
     - One consumer per shard
 - Increase throughput by increasing number of shards
-- Data retention is 1 day by default but can be set to up to 7 days
+- **Data retention is 1 day by default but can be set to up to 7 days**
 - Once data enters stream it can't be deleted/removed
 - Can reprocess/replay data as data is retained after processing
 - Multiple applications can consume the same stream
