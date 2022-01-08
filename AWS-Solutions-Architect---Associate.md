@@ -395,6 +395,7 @@
     - Best for short-term, spikey or unpredictable workloads and for testing/experimenting
 - **Reserved (best long-term)**
     - For apps that have steady-state, predictable usage or need reserved capacity (eg: databases)
+    - **When a Reserved Instance expires, any instances that were covered by the Reserved Instance are billed at the on-demand price**
     - Price is dependent on
         - Term: length of commitment (1 or 3 year)
         - Payment option: all upfront, partial upfront or no upfront
@@ -557,6 +558,7 @@
 ## EC2 Hibernate
 
 - Preserves in-memory state
+- **You will be billed when your On-Demand instance is preparing to hibernate with a stopping state**
 - Instance boot is extremely fast
 - It works by making a copy of the RAM state to the root EBS volume
 - Requirements
@@ -619,6 +621,7 @@
 - High availability across AZs
 - Enforce cookie stickiness
 - Separates public and private traffic
+- **Access logging** is an optional feature of Elastic Load Balancing that is disabled by default.** After you enable access logging for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify as compressed files**
 
 ## Elastic Load Balancer (ELB) Overview
 
@@ -852,7 +855,7 @@
 ## EBS Volume Types
 
 - Each is characterized in size, IOPS and throughput
-- Boot volumes( **High IOPS** )
+- Boot volumes( **High IOPS => SSD** )
     - GP2 (SSD) ⇒ General purpose
         - Recommended for most workloads
             - Virtual desktops
@@ -866,9 +869,9 @@
         - For critical business applications with sustained IOPS performance or more than 16,000 IOPS
         - Large databases (MySQL, MongoDB, Cassandra,...)
         - 4GB -16TB
-        - Provisioned IOPS 100 to 64,000 (for Nitro) or 32,000 (for non-Nitro instances)
+        - Provisioned IOPS 100 to **64,000 (for Nitro)** or** 32,000 (for non-Nitro instances)**
         - Max IOPS to volume ratio is 50:1
-- Non-Boot volumes( **High throughput** )
+- Non-Boot volumes( **High throughput => HDD** )
     - ST1 (HDD) ⇒ Low-cost, frequently accessed high throughput
         - For streaming workloads with fast throughput at low costs
         - Big data, data warehouses (Apache Kafka)
@@ -1299,8 +1302,8 @@
             - The API has hard limits with requests per second (KMS Quota)
                 - Region specific, but either 5,500, 10,000 or 30,000 requests per second
     - Multipart Uploads
-        - For files over 100MB
-        - Required for files over 5GB
+        - **For files over 100MB**
+        - **Required for files over 5GB**
         - Allows for upload parellelization
     - S3 Byte-Range Fetches
         - Parallelize downloads by specifying byte ranges
@@ -1317,6 +1320,8 @@
 ## Glacier Select
 
 - Run SQL queries against Glacier directly
+- **Provisioned capacity ensures that your retrieval capacity for expedited retrievals is available when you need it**
+- **Without provisioned capacity Expedited retrievals are accepted, except for rare situations of unusually high demand**
 - Used by companies in highly regulated industries where companies write data directly to Glacier for compliance purposes
 
 ## S3 – Requester Pays
@@ -1640,8 +1645,15 @@ The requester must be authenticated in AWS (cannot be anonymous).
 - Auto-enabled
 - Daily full backups
 - Transaction logs updated every 5 minutes
-- 7 day retention, max 35 days
+- **7 day retention, max 35 days**
 - DB snapshots are manually triggered by user but can be retained as long as you want
+
+## RDS – Storage Auto Scaling
+
+- Helps you increase storage on your RDS DB instance **dynamically**
+- When RDS detects you are **running out of free database storage**, it scales automatically
+- Avoid manually scaling your database storage 
+- You have to set **Maximum Storage Threshold** (maximum limit for DB storage)
 
 
 ## RDS Multi-AZ:
@@ -1758,7 +1770,7 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
     - Fast failover (<30s)
     - Supports Cross-Region Replication
 - Aurora DB Cluster
-    - Writer endpoint ⇒ DNS endpoint that always points at the master
+    - Writer endpoint**(also known as a Cluster endpoint)** ⇒ DNS endpoint that always points at the master
     - Reader endpoint ⇒ DNS endpoint that helps with connection load balancing and connects automatically to all the Read Replicas
 - Aurora Security
     - Very similar to RDS
@@ -2204,6 +2216,10 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - Free, comes with health checks
     - You cannot set an ALIAS record for an EC2 Dns name.
 
+## Active-Active Failover VS Active-Passive Failover
+
+- **Active-Active Failover uses all available resources all the time without a primary nor a secondary resource**
+- Active-Passive Failover: a primary resource or group of resources is available most of the time and a secondary resource is on standby in case all the primary resources become unavailable.
 ## Route 53 – Health Checks Types
 
 - Monitor an Endpoint
@@ -3122,7 +3138,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## VPC Overview
 
 - Soft limit of 5 VPC per region
-- Maximum CIDR for VPC is 5, each of which has to be between /28 and /16
+- Maximum CIDR for VPC is ** 5**, each of which has to be between **/28 and /16**
 - Being a Virtual **Private** Cloud, only Private IP ranges are allowed
 - VPC CIDR should not overlap with your other private networks
 - VPCs are divided in public or private subnets that are specific to single AZs
