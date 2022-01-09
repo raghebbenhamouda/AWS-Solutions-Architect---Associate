@@ -3660,3 +3660,11 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## AWS Transfer Family
 - secure transfer service for moving files into and out of AWS storage services, such as **Amazon S3 and Amazon EFS** using the **FTP protocol**
 - You can provision a Transfer Family server with multiple protocols **(SFTP, FTPS, FTP)**
+    
+##  AWS Certificate Manager & IAM certificate store
+- ACM lets you import third-party certificates from the ACM console, as well as programmatically
+- If ACM is not available in your region, use AWS CLI to upload your third-party certificate to the **IAM certificate store**
+    
+##  Server Access Logging feature of Amazon S3
+
+- give detailed logging information for **object-level access**
