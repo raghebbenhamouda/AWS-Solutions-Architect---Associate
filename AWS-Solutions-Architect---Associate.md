@@ -870,7 +870,7 @@
         - Large databases (MySQL, MongoDB, Cassandra,...)
         - 4GB -16TB
         - Provisioned IOPS 100 to **64,000 (for Nitro)** or** 32,000 (for non-Nitro instances)**
-        - Max IOPS to volume ratio is 50:1
+        - **Max IOPS to volume ratio is 50:1**
 - Non-Boot volumes( **High throughput => HDD** )
     - ST1 (HDD) ⇒ Low-cost, frequently accessed high throughput
         - For streaming workloads with fast throughput at low costs
@@ -1115,6 +1115,7 @@
 - Requests
 - Storage Management Pricing ⇒ tiers
 - Data transfer pricing
+-** No data transfer cost between S3 and EC2 in the same AWS Region**
 - Transfer Acceleration
     - Fast, easy and secure transfer of files over long distances between an S3 bucker and end users
     - Uses CloudFront edge locations
@@ -3635,8 +3636,8 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - DataSync ⇒ Move data between on-premise and AWS
 - Computing
     - EC2 ⇒ Compute/GPU Optimized, cost optimization via Spot fleets, Cluster placement groups for better network performance
-    - EC2 Enhanced Networking ⇒ High bandwidth, either via Elastic Network Adapter (100Gbps) or Intel 82599VF (10Gbps, legacy)
-    - Elastic Fabric Adapter ⇒ Improved ENA for distributed HPC that works only on Linux and leverages Message Passing Interface standards to provide low-latency network performace
+    - **EC2 Enhanced Networking ⇒ High bandwidth, either via Elastic Network Adapter (100Gbps) or Intel 82599VF (10Gbps, legacy)**
+    - Elastic Fabric Adapter ⇒ Improved ENA for distributed HPC that works only **on Linux** and leverages Message Passing Interface standards to provide l**ow-latency** network performace
 - Storage
     - Instance-attached storage ⇒ EBS (IO1, up to 64,000 IOPS) or Instance storage (millions of IOPS, physical storage)
     - Network storage ⇒ S3 (non-FS blob), EFS (IOPS based on provisioned IOPS or size) or FSx for Lustre (HPC optimized, backed by S3, millions of IOPS), **For cluster of EC2**
