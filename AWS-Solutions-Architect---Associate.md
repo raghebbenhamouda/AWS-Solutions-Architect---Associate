@@ -640,7 +640,7 @@
     - 503 error means at capacity or no registered targets
     - If LB can't connect to instances it is a security group misconfiguration
 - Monitoring
-    - ELB Access logs log all access requests
+    - **ELB Access logs** log all access requests
     - CloudWatch Metrics give aggregate statistics
 
 ## ELB Health Checks
@@ -952,9 +952,10 @@
 
 ## EFS Overview
 
-- Fully managed network file system that can be mounted on many EC2 instances in many AZ
+- Fully managed network file system that can be mounted on many EC2**(up to 1000)** instances in many AZ
 - Highly available and scales automatically, but very expensive and on a pay-per-use basis ⇒ No capacity planning
-- Uses NFSv4.1 protocol
+- Uses **NFSv4.1** protocol
+- **rapidly changing data**
 - Attach a security group to the EFS to accept connections from EC2 instances
 - All EC2 instances that are connected share the same files
 - Useful for content management, data sharing and web servers
@@ -1126,6 +1127,7 @@
 ## S3 Lifecycle Rules
 
 - Used to manage automated or deletion of stored objects or or transition to different storage classes through lifecycle rules
+- **You can only change the storage class of your objects from S3 Standard storage class to STANDARD_IA or ONEZONE_IA storage after 30 days. This limitation does not apply on INTELLIGENT_TIERING, GLACIER, and DEEP_ARCHIVE storage class**
 - Different types of actions
     - Transition actions ⇒ When objects are transitioned to another storage class
     - Expiration actions ⇒ When objects expire (are deleted)
@@ -1291,8 +1293,8 @@
     - The pathway between bucket name and object's key
     - S3 has extremely low latency, 1st byte out within 100-200 ms
         - High number of requests per second per prefix
-            - 3,500 PUT/COPY/POST/DELETE
-            - 5,500 GET/HEAD
+            - **3,500 PUT/COPY/POST/DELETE**
+            - **5,500 GET/HEAD**
 - Optimization strategies
     - Spreading reads across prefixes
         - More prefixes means more requests per seconds that can be handled
@@ -2958,6 +2960,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## CloudTrail Overview
 
 - Enabled by default
+- **By default, CloudTrail event log files are encrypted using Amazon S3 server-side encryption (SSE)**
 - Provides a history of events/API calls within the AWS Account made by console, SDK, CLI and services
 - Used for governance, compliance and audit purposes
 - CloudTrail Logs can be put in CloudWatch Logs
