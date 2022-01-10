@@ -816,8 +816,12 @@
 - Target Tracking Scaling
     - Set a target metric to track and scale in order to maintain that target
     - Eg: average CPU usage at 50% (scale in when below, scale out when above)]
-- Simple/Step Scaling
+- Simple Scaling
     - Specify steps of a target CloudWatch Alarm and scale when it is triggered
+    - Increase or decrease the current capacity of the group based on **a single scaling adjustment**
+- Step Scaling
+    - Specify steps of a target CloudWatch Alarm and scale when it is triggered
+    - Increase or decrease the current capacity of the group based on **a set of scaling adjustments**
 - Scheduled actions
     - Specific actions at specific time frames
     - Useful for highly predictable patterns
@@ -2970,11 +2974,13 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## CloudTrail Events
 
-- Management Events
+- **Management Events**
     - Operations that are performed on resources in your AWS account
     - By default, trails are configured to log management events   
-- Data Events   
+- **Data Events **  
     - By default, data events are not logged (because high volume operations) 
+    - Allows granular control of data event logging with advanced event selectors
+    - You can currently log data events on different resource types such as **Amazon S3 object-level API activity**, **AWS Lambda function execution activity (the Invoke API), DynamoDB Item actions, and many more.**
     - Exp: S3 putObject
 - CloudTrail Insights Events
     - Enable CloudTrail Insights to detect unusual activity in your account
@@ -3672,3 +3678,8 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ##  Server Access Logging feature of Amazon S3
 
 - give detailed logging information for **object-level access**
+    
+## ApproximateAgeOfOldestMessage Metric(For SQS)
+- The ApproximateAgeOfOldestMessage metric is useful when applications have **time-sensitive messages** and you need to ensure that messages are processed within a specific time period. You can use this metric to set Amazon CloudWatch alarms that issue alerts when messages remain in the queue for extended periods of time. You can also use alerts to take action, such as increasing the number of consumers to process messages more quickly.
+
+
