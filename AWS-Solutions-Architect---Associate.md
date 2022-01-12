@@ -437,12 +437,15 @@
                     - If instances are terminated requests are recreated until the validity period ends
                     - To fully cancel a persistent request, cancel the request first and then terminate the instances otherwise the request gets fulfilled again
         - If a request is canceled it does not automatically terminate the instances that were launched at earlier stages with it
-- **Dedicated (most expensive)**
+- **Dedicated Host (most expensive)**
     - Used to meet regulatory requirements of server-bound licensing that does not support multitenancy or cloud deployment
     - 3-year period reservations
     - Basically like buying a dedicated hardware and you are physically separated from other customers
     - Can't share across accounts
-
+    -  Visibility and control over **how instances are placed on the server**. This option is** costlier than the Dedicated Instance**
+-  **Dedicated Instance**
+    - EC2 instances that run in a virtual private cloud (VPC) on hardware that's dedicated to a single customer
+    - **Does not** provides **visibility and control over** **how instances are placed on the server**. 
 ## EC2 Instance Types
 
 - A good mnemonics is from ACloudGuru ⇒ FIGHT DR MC-PXZ (I pronounce it Fight Doctor McPixie)
