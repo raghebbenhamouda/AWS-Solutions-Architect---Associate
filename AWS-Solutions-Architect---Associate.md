@@ -166,6 +166,10 @@
             - Customer Managed
         - Inline Policies
             - Policies written directly on IAM users, groups or roles
+        - **Trust policy**
+            -  Define which principal entities (accounts, users, roles, and federated users) **can assume the role**
+            -  **Resource-based policies**
+            -  You must attach both a **trust policy** and an **identity-based policy** to an IAM role
     - Can be created via
         - Generator
         - Hand written policies
@@ -1385,6 +1389,11 @@ The requester must be authenticated in AWS (cannot be anonymous).
 - Uses CloudFront Edge Network to accelerate uploads to S3
 - Can use distinct URL to upload directly to edge location
     - `bucketname.s3-accelerate.amazonaws.com`
+## S3 sync command
+
+- The s3 sync command **synchronizes the contents of a bucket and a directory, or the contents of two buckets** 
+- S3 sync copies** missing or outdated files or objects** between the source and target
+
 
 ## DataSync
 
