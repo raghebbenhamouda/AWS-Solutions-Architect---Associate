@@ -2003,7 +2003,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 - VPC Endpoints
 - IAM access control
-- KMS encryption at-rest
+- **By default**, all DynamoDB tables are encrypted under an **AWS owned customer master key (CMK)**, which do** not write to CloudTrail logs** - AWS owned CMKs are a collection of CMKs that an AWS service owns and manages for use in multiple AWS accounts. Although AWS owned CMKs are not in your AWS account, an AWS service can use its AWS owned CMKs to protect the resources in your account.
 - SSL/TLS encryption in-flight
 
 ## DynamoDB Use Cases
@@ -2795,6 +2795,9 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Can reprocess/replay data as data is retained after processing
 - Multiple applications can consume the same stream
 - Useful when we have very large amount of data that needs to be ordered in many shards
+- **Enhanced fan-out**: if you have multiple consumers retrieving data from a stream in parallel. With enhanced fan-out developers can register stream consumers to use enhanced fan-out and receive their **own 2MB/second pipe of read throughput per shard**, and this throughput automatically scales with the number of shards in a stream.
+
+
 
 ## Ordering data into Kinesis
 - Imagine you have 100 trucks (truck_1, truck_2, … truck_100) on the road sending their GPS positions regularly into AWS.
