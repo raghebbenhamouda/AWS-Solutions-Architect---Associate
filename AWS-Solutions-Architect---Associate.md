@@ -1048,13 +1048,10 @@
 
 ## S3 Data Consistency Model
 
-- Read after Write consistency for PUTS
-    - As soon as you upload a new object,  you can immediately retrieve it via GET request on
-    - PUT 200 ⇒ GET 200
-- Eventual consistency for overwrite PUTS and DELETES
-    - If we read an object after updating it or deleting it, you might still get the old version
-    - PUT 200 ⇒ GET 200 (old version) or DELETE 200 ⇒ GET 200
-- There are no ways of requesting Strong consistency, it is built this way in the S3 data model
+- **Amazon S3 is strongly consistent for all GET, PUT and LIST operations**
+- Any subsequent read request immediately receives the latest version of the object
+- **Strong consistency** for l**ist operations**, so after a write, you can immediately perform a listing of the objects in a bucket with any changes reflected
+- **Object tags, ACLs, or metadata, are now strongly consistent** 
 
 ## S3 Storage Classes
 
@@ -1099,6 +1096,7 @@
         - Storing data that can be recreated
 - S3 Glacier
     - Secure, durable and low cost storage for data archiving
+    - **supports encryption by default for both data at rest as well as in-transit**
     - Minimum storage of 90 days
     - Very cheap but fee on retrieval per GB
     - Different retrieval options
@@ -3087,7 +3085,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## AWS Firewall Manager
 
 - Manages rules in all the accounts under an AWS Organization
-- Define common set of rules to use WAF, Shield and Security Groups across accounts
+- Define common set of rules to use** WAF, Shield and Security Groups across accounts**
 
 ## AWS **Web Application Firewall (WAF)**
 
