@@ -628,7 +628,7 @@
 - High availability across AZs
 - Enforce cookie stickiness
 - Separates public and private traffic
-- **Access logging** is an optional feature of Elastic Load Balancing that is disabled by default.** After you enable access logging for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify as compressed files**
+- **Access logging** is an optional feature of Elastic Load Balancing that is disabled by default. ** After you enable access logging for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify as compressed files**
 
 ## Elastic Load Balancer (ELB) Overview
 
@@ -963,7 +963,7 @@
 
 ## EFS Overview
 
-- Fully managed network file system that can be mounted on many EC2**(up to 1000)** instances in many AZ
+- Fully managed network file system that can be mounted on many EC2 **(up to 1000)** instances in many AZ
 - Highly available and scales automatically, but very expensive and on a pay-per-use basis ⇒ No capacity planning
 - Uses **NFSv4.1** protocol
 - **rapidly changing data**
@@ -1125,7 +1125,7 @@
 - Requests
 - Storage Management Pricing ⇒ tiers
 - Data transfer pricing
--** No data transfer cost between S3 and EC2 in the same AWS Region**
+- ** No data transfer cost between S3 and EC2 in the same AWS Region**
 - Transfer Acceleration
     - Fast, easy and secure transfer of files over long distances between an S3 bucker and end users
     - Uses CloudFront edge locations
@@ -1390,7 +1390,7 @@ The requester must be authenticated in AWS (cannot be anonymous).
 ## S3 sync command
 
 - The s3 sync command **synchronizes the contents of a bucket and a directory, or the contents of two buckets** 
-- S3 sync copies** missing or outdated files or objects** between the source and target
+- S3 sync copies **missing or outdated files or objects** between the source and target
 
 
 ## DataSync
@@ -1483,8 +1483,8 @@ The requester must be authenticated in AWS (cannot be anonymous).
     - Tape Gateway ⇒ Tape backup, VTL, Backup with iSCSI
         - Transfer backup jobs from tape to the cloud while keeping tools and processes on-premise
         - Virtual Tape Library (VTL) backed by S3 and Glacier
--Hardware appliance
-    -Using Storage Gateway means you need on-premises virtualization Otherwise, you can use a Storage Gateway Hardware Appliance
+- Hardware appliance
+    - Using Storage Gateway means you need on-premises virtualization Otherwise, you can use a Storage Gateway Hardware Appliance
 
 ## Storage Gateway Use cases
 
@@ -1787,7 +1787,7 @@ The caveat for Read Replicas is that they are subject to small amounts of replic
     - Fast failover (<30s)
     - Supports Cross-Region Replication
 - Aurora DB Cluster
-    - Writer endpoint**(also known as a Cluster endpoint)** ⇒ DNS endpoint that always points at the master
+    - Writer endpoint **(also known as a Cluster endpoint)** ⇒ DNS endpoint that always points at the master
     - Reader endpoint ⇒ DNS endpoint that helps with connection load balancing and connects automatically to all the Read Replicas
 - Aurora Security
     - Very similar to RDS
@@ -2001,7 +2001,8 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 - VPC Endpoints
 - IAM access control
-- **By default**, all DynamoDB tables are encrypted under an **AWS owned customer master key (CMK)**, which do** not write to CloudTrail logs** - AWS owned CMKs are a collection of CMKs that an AWS service owns and manages for use in multiple AWS accounts. Although AWS owned CMKs are not in your AWS account, an AWS service can use its AWS owned CMKs to protect the resources in your account.
+- **By default**, all DynamoDB tables are encrypted under an **AWS owned customer master key (CMK)**, which do **not write to CloudTrail logs** 
+- AWS owned CMKs are a collection of CMKs that an AWS service owns and manages for use in multiple AWS accounts. Although AWS owned CMKs are not in your AWS account, an AWS service can use its AWS owned CMKs to protect the resources in your account.
 - SSL/TLS encryption in-flight
 
 ## DynamoDB Use Cases
@@ -2377,7 +2378,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## Difference between CloudFront and Global Accelerator
 
 - Both use Edge Locations
-- Both integratw with AWS Shield for DDoS Protection
+- Both integrate with AWS Shield for DDoS Protection
 - CloudFront improves content deliver for static (cacheable) and dynamic content by serving content from the Edge Locations
 - Global Accelerator proxyes requests at Edge Location to applications running in one or more Regions
 - Global Accelerator is a good fit if you have a non-HTTP uses cases such as gaming, IoT or Voice over IP, HTTP use case that requires a static IP addresses globally
@@ -2990,7 +2991,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - **Management Events**
     - Operations that are performed on resources in your AWS account
     - By default, trails are configured to log management events   
-- **Data Events **  
+- **Data Events**  
     - By default, data events are not logged (because high volume operations) 
     - Allows granular control of data event logging with advanced event selectors
     - You can currently log data events on different resource types such as **Amazon S3 object-level API activity**, **AWS Lambda function execution activity (the Invoke API), DynamoDB Item actions, and many more.**
@@ -3085,7 +3086,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## AWS Firewall Manager
 
 - Manages rules in all the accounts under an AWS Organization
-- Define common set of rules to use** WAF, Shield and Security Groups across accounts**
+- Define common set of rules to use **WAF, Shield and Security Groups across accounts**
 
 ## AWS **Web Application Firewall (WAF)**
 
@@ -3161,7 +3162,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 ## VPC Overview
 
 - Soft limit of 5 VPC per region
-- Maximum CIDR for VPC is ** 5**, each of which has to be between **/28 and /16**
+- Maximum CIDR for VPC is **5**, each of which has to be between **/28 and /16**
 - Being a Virtual **Private** Cloud, only Private IP ranges are allowed
 - VPC CIDR should not overlap with your other private networks
 - VPCs are divided in public or private subnets that are specific to single AZs
@@ -3252,7 +3253,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 - Allows to connect two VPC privately using AWS' network
 - Must be set such as if they were on the same network, using appropriate CIDR
-- Can work c**ross-region and cross-account** and you can reference security groups of peered VPCs
+- Can work **cross-region and cross-account** and you can reference security groups of peered VPCs
 - **You must update route tables in each VPC’s subnets to ensure EC2 instances can communicate with each other**
 
 ## VPC Endpoints
@@ -3307,7 +3308,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## Direct Connect
 
-- Dedicated **private connection ** from an on-prem DC to AWS network via Direct Connect locations
+- Dedicated **private connection** from an on-prem DC to AWS network via Direct Connect locations
 - Needs dedicated connection on DC and a Virtual Private Gateways in your AWS VPC
 - You can access both private and public resources using the same connection
 - Supports IPv4/6
@@ -3395,7 +3396,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
     - Metadata ⇒ Information about the stack
     - Helpers ⇒ References and functions needed for the template
 - StackSets
-    - Create, update, or delete stacks across** multiple accounts and regions** with a single operation
+    - Create, update, or delete stacks across **multiple accounts and regions** with a single operation
     - Need to use root account to create StackSet, trusted account to CRUD stack instances
     - When a StackSet is updated, all the associated stacks are updated
 
@@ -3675,7 +3676,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## AWS Server Migration Service (SMS)
 
-- **An agentless service** for** migrating** thousands of **on-premises workloads to AWS**
+- **An agentless service** for **migrating** thousands of **on-premises workloads to AWS**
 - This is the enhanced replacement of Amazon EC2 **VM Import service**.
 - Each server volume replicated is saved as a n**ew Amazon Machine Image (AMI)**, which can be launched as an EC2 instance in the AWS cloud.
 - AWS SMS creates a n**ew EBS snapshot** with every replication.
