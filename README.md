@@ -2782,7 +2782,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 
 ## Kinesis Data Stream
 
-- Divided in ordered shards/partitions
+- Divided in ordered shards/partitions(like FIFO queue)
     - A shard is **1MB/s** or **1000 messages/s** for writes and **2MB/s** per reads
     - Billed per shard provisioned with 200 shards as a soft limit
     - Shards number can increase over time to scale appropriately (reshard/merge)
@@ -2794,7 +2794,7 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - Can reprocess/replay data as data is retained after processing
 - Multiple applications can consume the same stream
 - Useful when we have very large amount of data that needs to be ordered in many shards
-- **Enhanced fan-out**: if you have multiple consumers retrieving data from a stream in parallel. With enhanced fan-out developers can register stream consumers to use enhanced fan-out and receive their **own 2MB/second pipe of read throughput per shard**, and this throughput automatically scales with the number of shards in a stream.
+- **Enhanced fan-out**: if you have multiple consumers retrieving data from a stream in parallel. With enhanced fan-out developers can register stream consumers to use enhanced fan-out and receive their **own 2MB/second pipe of read throughput per shard**, and this throughput automatically scales with the number of shards in a stream
 
 
 
@@ -2829,7 +2829,8 @@ All the Aurora instances can do writes and in case one Aurora instance fails the
 - HTTPS endpoint in-flight encryption
 - KMS for at-rest encryption
 - Client-side encryption
-- VPC endpoints to access Kinesis in a VPC
+- VPC endpoints to access Kinesis within a VPC
+- Monitor API calls using CloudTrail
 
 ## SQS vs SNS vs Kinesis
 
