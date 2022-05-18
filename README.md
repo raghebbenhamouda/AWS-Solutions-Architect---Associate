@@ -1125,7 +1125,7 @@
 - Requests
 - Storage Management Pricing ⇒ tiers
 - Data transfer pricing
-- ** No data transfer cost between S3 and EC2 in the same AWS Region**
+- **No data transfer cost between S3 and EC2 in the same AWS Region**
 - Transfer Acceleration
     - Fast, easy and secure transfer of files over long distances between an S3 bucker and end users
     - Uses CloudFront edge locations
